@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="calculator"
+            type="com.happy.calculatortdd.Calculator" />
+        <import
+            type="com.happy.calculatortdd.model.Operator.Type"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.25"
+            android:text="@{calculator.resultLiveData}"
+            android:padding="20dp"
+            android:textSize="40sp"
+            android:background="@color/gray_dark"
+            android:textColor="@color/white"
+            android:gravity="right|center_vertical"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintTop_toBottomOf="@+id/tv_result">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_clear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="AC"
+                android:onClick="@{() -> calculator.clear()}"
+                android:theme="@style/AppTheme.Button.Dark.Gray"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_toggle_sign"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="+/-"
+                android:onClick="@{() -> calculator.setOperator(Type.SIGN)}"
+                android:theme="@style/AppTheme.Button.Dark.Gray"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_percent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="%"
+                android:onClick="@{() -> calculator.setOperator(Type.PERCENT)}"
+                android:theme="@style/AppTheme.Button.Dark.Gray"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_division"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="/"
+                android:onClick="@{() -> calculator.setOperator(Type.DIVISION)}"
+                android:theme="@style/AppTheme.Button.Orange"
+                tools:ignore="ButtonStyle,HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="7"
+                android:onClick="@{() -> calculator.addNum(7)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:onClick="@{() -> calculator.addNum(8)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="9"
+                android:onClick="@{() -> calculator.addNum(9)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_multiply"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="x"
+                android:onClick="@{() -> calculator.setOperator(Type.MULTIPLY)}"
+                android:theme="@style/AppTheme.Button.Orange"
+                tools:ignore="ButtonStyle,HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="4"
+                android:onClick="@{() -> calculator.addNum(4)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="5"
+                android:onClick="@{() -> calculator.addNum(5)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="6"
+                android:onClick="@{() -> calculator.addNum(6)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_minus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="-"
+                android:onClick="@{() -> calculator.setOperator(Type.MINUS)}"
+                android:theme="@style/AppTheme.Button.Orange"
+                tools:ignore="ButtonStyle,HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1"
+                android:onClick="@{() -> calculator.addNum(1)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="2"
+                android:onClick="@{() -> calculator.addNum(2)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="3"
+                android:onClick="@{() -> calculator.addNum(3)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_plus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="+"
+                android:onClick="@{() -> calculator.setOperator(Type.PLUS)}"
+                android:theme="@style/AppTheme.Button.Orange"
+                tools:ignore="ButtonStyle,HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_num_0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="0"
+                android:onClick="@{() -> calculator.addNum(0)}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_dot"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="."
+                android:onClick="@{() -> calculator.addDot()}"
+                android:theme="@style/AppTheme.Button.Num"
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_result"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="="
+                android:onClick="@{() -> calculator.calculate()}"
+                android:theme="@style/AppTheme.Button.Orange"
+                tools:ignore="ButtonStyle,HardcodedText" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
