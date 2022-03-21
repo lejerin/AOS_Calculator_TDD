@@ -101,7 +101,7 @@ class CalculatorTest : TestCase() {
      */
     fun testMaxLength() {
         val calculator = Calculator()
-        for (i in 0 until 12) {
+        for (i in 0 until 10) {
             calculator.addNum(1)
         }
         val maxLength = calculator.left.size

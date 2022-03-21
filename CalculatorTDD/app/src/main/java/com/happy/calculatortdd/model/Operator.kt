@@ -68,7 +68,7 @@ class Operator {
         return division(value, 100)
     }
 
-    fun toggleSign(value: Number): Double {
-        return if (value == 0.0) 0.0 else -value.toDouble()
+    fun toggleSign(value: Number): Result {
+        return Result(if (value == 0.0) 0.0 else -value.toDouble())
     }
 }

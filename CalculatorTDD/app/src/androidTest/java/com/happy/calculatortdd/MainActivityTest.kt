@@ -97,6 +97,22 @@ class MainActivityTest : TestCase() {
         checkResult("${1004 - 104}")
     }
 
+    // 퍼센트 계산 테스트 : 100으로 나눔
+    @Test
+    fun testOperatorPercent() {
+        clickNum("300")
+        clickViewId(R.id.btn_percent)
+        checkResult("${3}")
+    }
+
+    // sign 계산 테스트 : +- 변경
+    @Test
+    fun testToggleSign() {
+        clickNum("15.98")
+        clickViewId(R.id.btn_toggle_sign)
+        checkResult("${-15.98}")
+    }
+
     private fun clickViewId(viewId: Int) {
         onView(withId(viewId))
             .check(matches(isDisplayed()))

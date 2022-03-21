@@ -72,9 +72,9 @@ class Calculator {
 
     private fun checkMaxLength(): Boolean {
         return if (operatorType != null) {
-            right.size < 12
+            right.size < 10
         } else {
-            left.size < 12
+            left.size < 10
         }
     }
 
@@ -99,6 +99,13 @@ class Calculator {
 
     fun setOperator(type: Operator.Type) {
         operatorType = type
+        when (type) {
+            Operator.Type.PERCENT,
+            Operator.Type.SIGN -> calculate()
+            else -> {
+
+            }
+        }
         updateResult()
     }
 
@@ -108,6 +115,8 @@ class Calculator {
             Operator.Type.MINUS -> operator.minus(leftDouble, rightDouble)
             Operator.Type.MULTIPLY -> operator.multiply(leftDouble, rightDouble)
             Operator.Type.DIVISION -> operator.division(leftDouble, rightDouble)
+            Operator.Type.PERCENT -> operator.percent(leftDouble)
+            Operator.Type.SIGN -> operator.toggleSign(leftDouble)
             else -> {
                 Result(null, null)
             }
