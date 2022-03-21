@@ -1,6 +1,6 @@
 package com.happy.calculatortdd
 
-import com.happy.calculatortdd.model.Operator
+import com.happy.calculatortdd.data.model.Operator
 import junit.framework.TestCase
 
 class CalculatorTest : TestCase() {

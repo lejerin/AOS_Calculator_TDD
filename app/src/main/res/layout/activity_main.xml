@@ -8,7 +8,7 @@
             name="calculator"
             type="com.happy.calculatortdd.Calculator" />
         <import
-            type="com.happy.calculatortdd.model.Operator.Type"/>
+            type="com.happy.calculatortdd.data.model.Operator.Type"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,11 +1,8 @@
 package com.happy.calculatortdd
 
-import android.graphics.Path
 import androidx.lifecycle.MutableLiveData
-import com.happy.calculatortdd.model.Operator
-import com.happy.calculatortdd.model.Result
-import java.lang.StringBuilder
-import java.util.Stack
+import com.happy.calculatortdd.data.model.Operator
+import com.happy.calculatortdd.data.model.Result
 
 class Calculator {
     val resultLiveData = MutableLiveData("0")

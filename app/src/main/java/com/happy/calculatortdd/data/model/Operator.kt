@@ -1,4 +1,4 @@
-package com.happy.calculatortdd.model
+package com.happy.calculatortdd.data.model
 
 import android.util.Log
 
