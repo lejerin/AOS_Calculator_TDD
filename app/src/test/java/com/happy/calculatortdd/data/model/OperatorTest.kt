@@ -91,12 +91,12 @@ class OperatorTest : TestCase() {
     3. (완료) 정수로 입력할 수 있고, 결과 값은 Double
      */
     fun testToggleSign() {
-        assertEquals(-1.0, operator.toggleSign(1.0))
-        assertEquals(1.0, operator.toggleSign(-1.0))
-        assertEquals(max, operator.toggleSign(min))
-        assertEquals(min, operator.toggleSign(max))
-        assertEquals(0.0, operator.toggleSign(0.0))
-        assertEquals(-1.0, operator.toggleSign(1))
+        assertEquals(-1.0, operator.toggleSign(1.0).value)
+        assertEquals(1.0, operator.toggleSign(-1.0).value)
+        assertEquals(max, operator.toggleSign(min).value)
+        assertEquals(min, operator.toggleSign(max).value)
+        assertEquals(0.0, operator.toggleSign(0.0).value)
+        assertEquals(-1.0, operator.toggleSign(1).value)
     }
 
     /*
