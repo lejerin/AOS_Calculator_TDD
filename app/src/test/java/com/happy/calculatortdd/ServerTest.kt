@@ -12,7 +12,7 @@ class ServerTest: TestCase() {
     /*
     Todo: 해야할 목록
     - (완료) 서버에서 목록 가져오기
-    - 계산 완료되면 서버에 추가하기
+    - (완료) 계산 완료되면 서버에 추가하기
     - 초기화 요청 되면, 서버에 목록 모두 지우기
      */
 
@@ -65,5 +65,25 @@ class ServerTest: TestCase() {
         assertEquals("1234", afterList.last())
         // listRepository.addHistory("1234") 이 한 번만 불렸어야 함을 검증한다.
         verify(listRepository, times(1)).addHistory("1234")
+    }
+
+    // 초기화 요청 되면, 서버에 목록 모두 지우기
+    @Test
+    fun testClearHistory() {
+        `when`(listRepository.getHistoryList(1234)).thenReturn(
+            listOf( // 첫 번째 호출 반환
+                "1004",
+                "31",
+                "444"
+            ),
+            listOf()
+        )
+        val beforeList = listRepository.getHistoryList(1234)
+        listRepository.clearHistory()
+        val afterList = listRepository.getHistoryList(1234)
+        assertEquals(3, beforeList.size)
+        assertEquals(0, afterList.size)
+        // listRepository.clearHistory() 이 한 번만 불렸어야 함을 검증한다.
+        verify(listRepository, times(1)).clearHistory()
     }
 }

@@ -11,4 +11,8 @@ open class ListRepository {
     open fun addHistory(value: String) {
         // add
     }
+
+    open fun clearHistory() {
+        // clear
+    }
 }
